@@ -152,6 +152,33 @@ display:block;
   z-index:-10;
   background:#000;
   }
+  .project-summary{
+  margin-bottom:16px;
+  }
+
+  .project-points{
+  margin:0 0 18px 20px;
+  color:var(--text-body);
+  }
+
+  .project-tags{
+  margin-top:10px;
+  }
+
+  .project-tags .tag{
+  margin-left:0;
+  }
+
+  .project-status{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 25px;
+  border:1px solid var(--card-border);
+  border-radius:20px;
+  color:var(--text-muted);
+  background:rgba(255,255,255,0.06);
+  }
+
 
   .project-link{
   display:inline-block;
