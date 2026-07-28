@@ -343,3 +343,58 @@ display:block;
 
   .mission-subtitle{ font-size:17px; }
 }
+
+/* ---------- Vesta project page refinements ---------- */
+.vesta-page{
+  background:var(--bg);
+}
+
+.vesta-hero{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(85,221,255,.14), transparent 26%),
+    radial-gradient(circle at 78% 24%, rgba(114,221,255,.10), transparent 28%);
+}
+
+.eyebrow{
+  margin-top:0;
+  margin-bottom:10px;
+  color:var(--accent);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.stat-cards{
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+.stat-cards .card p,
+.cost-total{
+  color:var(--accent-soft);
+  font-size:28px;
+  font-weight:700;
+}
+
+.feature-list{
+  margin-top:0;
+}
+
+.formula{
+  margin-top:18px;
+  color:var(--text-body);
+  font-size:20px;
+}
+
+.sample-tags{
+  margin-top:0;
+}
+
+.cost-card{
+  text-align:center;
+}
+
+.cost-card .project-tags{
+  justify-content:center;
+}
