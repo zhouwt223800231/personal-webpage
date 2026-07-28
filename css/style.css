@@ -1,4 +1,4 @@
-<style>
+
   /* ============================================================
      THEME VARIABLES — edit these to restyle the whole site at once
      ============================================================ */
@@ -142,4 +142,13 @@ display:block;
   border:3px solid white;
   margin-bottom:30px;
   }
-</style>
+
+  #universe-background{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-10;
+  background:#000;
+  }
