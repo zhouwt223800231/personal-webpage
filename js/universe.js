@@ -1,4 +1,4 @@
-<script>
+
 /* ==================================================================
    ANIMATED STARFIELD BACKGROUND — NASA deep-space style
    No edits needed here. STAR_COUNT below controls star density.
@@ -94,4 +94,4 @@ window.innerHeight
 );
 };
 })();
-</script>
+
