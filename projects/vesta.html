@@ -1,193 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>
-Vesta Mission
-</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISIT.TA Mission | Vesta Project</title>
 <link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
 </head>
 
-<body>
+<body class="vesta-page">
+<div id="universe-background"></div>
 
 <nav>
   <a href="../index.html#projects">Portfolio</a>
+  <a href="#mission-overview">Overview</a>
+  <a href="#science">Science</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#sample-science">Samples</a>
 </nav>
   
 <main>
-  <section class="hero" id="hero">
-    <p class="eyebrow">VISIT.TA Mission</p>
+  <section class="hero vesta-hero" id="hero">
+    <p class="eyebrow">Asteroid Exploration Concept</p>
     <h1>VISIT.TA Mission</h1>
     <h2>A Journey Back to the Planetary Childhood</h2>
     <p>
       Exploring Vesta, the surviving protoplanet that preserves the earliest
       history of terrestrial planets.
     </p>
-    <a href="#mission-overview" class="button">Discover the Mission</a>
+    <a href="#mission-overview" class="project-link">Discover the Mission</a>
   </section>
 
-  <section id="mission-overview">
-    <h2>Mission Overview</h2>
-    <div class="card-grid">
+  <section class="container" id="mission-overview">
+    <h1 class="title">Mission Overview</h1>
+    <div class="cards">
       <article class="card">
-        <h3>01 The Target: Vesta</h3>
+        <h3>🪐 The Target: Vesta</h3>
         <p>
           Vesta is a differentiated asteroid and surviving protoplanet from the
           earliest era of Solar System history.
         </p>
       </article>
       <article class="card">
-        <h3>02 The Question: How did planets form, differentiate and evolve?</h3>
+        <h3>❓ The Question</h3>
         <p>
-          Its ancient crust and interior record the processes that shaped rocky
-          planetary bodies.
+          Its ancient crust and interior record how rocky planetary bodies formed,
+          differentiated, and evolved.
         </p>
       </article>
       <article class="card">
-        <h3>03 The Solution: Orbital survey + in-situ exploration + sample return</h3>
+        <h3>🚀 The Solution: Orbital survey + in-situ exploration + sample return</h3>
         <p>
-          VISIT.TA combines global mapping, surface measurements, and returned
-          samples for laboratory analysis.
+          VISIT.TA combines orbital survey, in-situ exploration, and sample return
+          for high-precision laboratory analysis.
         </p>
       </article>
     </div>
   </section>
   
-  <section id="vesta-fossil">
-    <h2>Vesta: A Fossil of Planet Formation</h2>
-    <dl class="fact-grid">
-      <div>
-        <dt>Diameter</dt>
-        <dd>525 km</dd>
-      </div>
-      <div>
-        <dt>Mass</dt>
-        <dd>2.6 × 10²⁰ kg</dd>
-      </div>
-      <div>
-        <dt>Density</dt>
-        <dd>3.4 g/cm³</dd>
-      </div>
-      <div>
-        <dt>Rotation Period</dt>
-        <dd>5.34 hours</dd>
-      </div>
-      <div>
-        <dt>Gravity</dt>
-        <dd>0.026 g</dd>
-      </div>
-    </dl>
+  <section class="container" id="vesta-fossil">
+    <h1 class="title">Vesta: A Fossil of Planet Formation</h1>
+    <div class="cards stat-cards">
+      <div class="card"><h3>Diameter</h3><p>525 km</p></div>
+      <div class="card"><h3>Mass</h3><p>2.6 × 10²⁰ kg</p></div>
+      <div class="card"><h3>Density</h3><p>3.4 g/cm³</p></div>
+      <div class="card"><h3>Rotation Period</h3><p>5.34 hours</p></div>
+      <div class="card"><h3>Gravity</h3><p>0.026 g</p></div>
+    </div>
   </section>
 
-  <section id="why-vesta-matters">
-    <h2>Why Vesta Matters</h2>
-    <div class="card-grid">
+  <section class="container" id="science">
+    <h1 class="title">Why Vesta Matters</h1>
+    <div class="cards">
       <article class="card">
-        <h3>A Surviving Protoplanet</h3>
+        <h3>🌋 A Surviving Protoplanet</h3>
         <p>Vesta preserves evidence from the building blocks of terrestrial planets.</p>
       </article>
       <article class="card">
-        <h3>A Window into Planet Differentiation</h3>
+        <h3>🧭 A Window into Planet Differentiation</h3>
         <p>Its layered structure helps explain how early worlds separated into crust, mantle, and core.</p>
       </article>
       <article class="card">
-        <h3>The Origin of HED Meteorites</h3>
+        <h3>🪨 The Origin of HED Meteorites</h3>
         <p>Returned samples can connect Vesta directly to meteorites studied on Earth.</p>
       </article>
     </div>
   </section>
 
-  <section id="scientific-questions">
-    <h2>Three Scientific Questions</h2>
-    <ol>
-      <li>Revealing the Protoplanet Interior</li>
-      <li>Understanding HED Meteorites</li>
-      <li>Decoding Giant Impacts</li>
-    </ol>
+  <section class="container">
+    <h1 class="title">Three Scientific Questions</h1>
+    <div class="card">
+      <ul class="project-points feature-list">
+        <li>Revealing the protoplanet interior</li>
+        <li>Understanding HED meteorites</li>
+        <li>Decoding giant impacts</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="dawn-mission">
-    <h2>Previous Exploration: Dawn Mission</h2>
-    <ol class="timeline">
-      <li><strong>2007</strong> Launch</li>
-      <li><strong>2011</strong> Arrival at Vesta</li>
-      <li><strong>2012</strong> Global Mapping</li>
-      <li><strong>2018</strong> Mission Completed</li>
-    </ol>
+  <section class="container" id="dawn-mission">
+    <h1 class="title">Previous Exploration: Dawn Mission</h1>
+    <div class="timeline">
+      <div class="item"><div class="year">2007</div><p>Launch</p></div>
+      <div class="item"><div class="year">2011</div><p>Arrival at Vesta</p></div>
+      <div class="item"><div class="year">2012</div><p>Global mapping campaign</p></div>
+      <div class="item"><div class="year">2018</div><p>Mission completed</p></div>
+    </div>
   </section>
 
-  <section id="mission-architecture">
-    <h2>VISIT.TA Mission Architecture</h2>
-    <ol class="mission-flow">
-      <li>Earth</li>
-      <li>Launch 2028</li>
-      <li>Deep Space Cruise</li>
-      <li>Vesta Orbit 2029</li>
-      <li>Surface Exploration</li>
-      <li>Sample Collection 2030</li>
-      <li>Earth Return 2031</li>
-    </ol>
+  <section class="container" id="architecture">
+    <h1 class="title">VISIT.TA Mission Architecture</h1>
+    <div class="cards">
+      <article class="card"><h3>🌍 Earth</h3><p>Launch in 2028</p></article>
+      <article class="card"><h3>🛰 Cruise</h3><p>Deep-space transfer and approach operations</p></article>
+      <article class="card"><h3>🪐 Vesta Orbit</h3><p>Global survey begins in 2029</p></article>
+      <article class="card"><h3>🤖 Surface Exploration</h3><p>Landing, context imaging, and site assessment</p></article>
+      <article class="card"><h3>🧪 Sample Collection</h3><p>Sampling campaign in 2030</p></article>
+      <article class="card"><h3>🏠 Earth Return</h3><p>Return capsule arrives in 2031</p></article>
+    </div>
   </section>
 
-  <section id="exploration-system">
-    <h2>Three-Level Exploration System</h2>
-    <div class="card-grid">
-      <article class="card"><h3>Orbital Exploration</h3></article>
-      <article class="card"><h3>In-situ Exploration</h3></article>
-      <article class="card"><h3>Sample Return</h3></article>
+  <section class="container" id="exploration-system">
+    <h1 class="title">Three-Level Exploration System</h1>
+    <div class="cards">
+      <article class="card"><h3>Orbital Exploration</h3><p>Map surface composition, topography, and thermal context.</p></article>
+      <article class="card"><h3>In-situ Exploration</h3><p>Measure local geology near candidate sampling sites.</p></article>
+      <article class="card"><h3>Sample Return</h3><p>Bring selected material to Earth laboratories for detailed analysis.</p></article>
     </div>
   </section>
   
-  <section id="sampling-strategy">
-    <h2>Sampling Strategy</h2>
-    <h3>Searching for the Ancient Mantle</h3>
-    <p class="formula">
-      Site Score = Spectral Factor + Terrain Factor + Thermal Factor + Engineering Factor
-    </p>
-  </section>
-
-  <section id="spacecraft-architecture">
-    <h2>Spacecraft Architecture</h2>
-    <div class="card-grid">
-      <article class="card"><h3>Orbiter</h3></article>
-      <article class="card"><h3>Lander</h3></article>
-      <article class="card"><h3>Return Capsule</h3></article>
+  <section class="container" id="sampling-strategy">
+    <h1 class="title">Sampling Strategy</h1>
+    <div class="card">
+      <h3>Searching for the Ancient Mantle</h3>
+      <p class="formula">
+        Site Score = Spectral Factor + Terrain Factor + Thermal Factor + Engineering Factor
+      </p>
     </div>
   </section>
 
-  <section id="sample-science">
-    <h2>Sample Science</h2>
-    <ul class="tag-list">
-      <li>Mineralogy</li>
-      <li>Isotope Analysis</li>
-      <li>Volatile Analysis</li>
-      <li>Impact Record</li>
-      <li>Petrology</li>
-      <li>Chronology</li>
-    </ul>
+  <section class="container" id="spacecraft-architecture">
+    <h1 class="title">Spacecraft Architecture</h1>
+    <div class="cards">
+      <article class="card"><h3>Orbiter</h3><p>Performs remote sensing and communications relay.</p></article>
+      <article class="card"><h3>Lander</h3><p>Supports surface measurements and sample acquisition.</p></article>
+      <article class="card"><h3>Return Capsule</h3><p>Protects the collected material during Earth return.</p></article>
+    </div>
   </section>
 
-  <section id="cost-analysis">
-    <h2>Cost Analysis</h2>
-    <p class="cost-total">$1.45 Billion</p>
-    <ul>
-      <li>Payload System</li>
-      <li>Platform &amp; Propulsion</li>
-      <li>Launch System</li>
-      <li>Integration</li>
-      <li>Risk Margin</li>
-    </ul>
+  <section class="container" id="sample-science">
+    <h1 class="title">Sample Science</h1>
+    <div class="card">
+      <div class="project-tags sample-tags">
+        <span class="tag">Mineralogy</span>
+        <span class="tag">Isotope Analysis</span>
+        <span class="tag">Volatile Analysis</span>
+        <span class="tag">Impact Record</span>
+        <span class="tag">Petrology</span>
+        <span class="tag">Chronology</span>
+      </div>
+    </div>
   </section>
 
-  <section id="conclusion">
-    <h2>Conclusion</h2>
-    <p>Vesta is not only an asteroid.</p>
-    <p>It is a preserved chapter of planetary evolution.</p>
-    <p>Here is where our exploration begins.</p>
+  <section class="container" id="cost-analysis">
+    <h1 class="title">Cost Analysis</h1>
+    <div class="card cost-card">
+      <p class="cost-total">$1.45 Billion</p>
+      <div class="project-tags sample-tags">
+        <span class="tag">Payload System</span>
+        <span class="tag">Platform &amp; Propulsion</span>
+        <span class="tag">Launch System</span>
+        <span class="tag">Integration</span>
+        <span class="tag">Risk Margin</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="conclusion">
+    <h1 class="title">Conclusion</h1>
+    <div class="card">
+      <p>Vesta is not only an asteroid.</p>
+      <p>It is a preserved chapter of planetary evolution.</p>
+      <p>Here is where our exploration begins.</p>
+      <a href="../index.html#projects" class="project-link">Back to Projects</a>
+    </div>
   </section>
 </main>
   
-<a href="../index.html#projects" class="project-link">Back to Projects</a>
-  
+<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
+<script src="../js/universe.js"></script>
 </body>
 
 </html>
