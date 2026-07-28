@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wynton Zhou | Physics Research Portfolio</title>
+
+<style>
+  /* ============================================================
+     THEME VARIABLES — edit these to restyle the whole site at once
+     ============================================================ */
+  :root{
+    --bg:            #020617;   /* page background */
+    --bg-end:        #000000;   /* bottom of the starfield gradient */
+    --accent:        #55ddff;   /* headings, borders, links */
+    --accent-soft:   #72ddff;   /* card headings, subtitle */
+    --text-body:     #dbeafe;   /* hero paragraph */
+    --text-muted:    #9eeaff;   /* tag text */
+    --card-bg:       rgba(255,255,255,0.08);
+    --card-bg-hover: rgba(255,255,255,0.15);
+    --card-border:   rgba(255,255,255,0.15);
+    --nav-bg:        rgba(0,0,0,0.35);
+    --tag-bg:        rgba(50,200,255,.15);
+    --max-width:     1100px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:#fff;
+    line-height:1.8;
+    overflow-x:hidden;
+  }
+
+  #universe-background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-10;
+background:#000;
+overflow:hidden;
+}
+
+#universe-background canvas{
+width:100%;
+height:100%;
+display:block;
+}
+
+  /* ---------- Navigation ---------- */
+  nav{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    padding:18px;
+    background:var(--nav-bg);
+    backdrop-filter:blur(12px);
+    z-index:10;
+    text-align:center;
+  }
+  nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:20px;
+    font-size:16px;
+  }
+  nav a:hover{ color:var(--accent); }
+
+  /* Offsets so fixed nav doesn't cover section headings when jumped to */
+  section[id]{ scroll-margin-top:80px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+  }
+  .hero h1{ font-size:70px; letter-spacing:8px; }
+  .hero h2{ font-weight:normal; color:var(--accent-soft); margin-top:20px; }
+  .hero p{ margin-top:30px; font-size:20px; color:var(--text-body); max-width:640px; }
+
+  /* ---------- Content wrapper ---------- */
+  .container{ max-width:var(--max-width); margin:auto; padding:90px 30px; }
+
+  .title{
+    font-size:38px;
+    color:var(--accent);
+    margin-bottom:35px;
+    border-left:5px solid var(--accent);
+    padding-left:15px;
+  }
+
+  /* ---------- Cards ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+  }
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:20px;
+    padding:30px;
+    transition:.3s;
+  }
+  .card:hover{
+    transform:translateY(-8px);
+    background:var(--card-bg-hover);
+  }
+  .card h3{ color:var(--accent-soft); margin-bottom:15px; }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ border-left:3px solid var(--accent); padding-left:30px; }
+  .item{ margin-bottom:35px; }
+  .year{ color:var(--accent); font-size:25px; font-weight:bold; }
+
+  /* ---------- Skill tags ---------- */
+  .tag{
+    display:inline-block;
+    padding:8px 18px;
+    margin:8px;
+    background:var(--tag-bg);
+    border-radius:30px;
+    color:var(--text-muted);
+  }
+
+  .contact a{ color:var(--accent); }
+
+  @media(max-width:600px){
+    .hero h1{ font-size:40px; }
+    nav a{ margin:8px; font-size:13px; }
+  }
+</style>
+</head>
+
+<body>
+
+<div id="universe-background"></div>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#project">Projects</a>
+  <a href="#timeline">Journey</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ============================================================
+     HERO — EDIT: your name, tagline, and intro sentence
+     ============================================================ -->
+<section class="hero">
+  <h1>Wynton Zhou</h1>
+  <h2>Physics Student | Research Enthusiast</h2>
+  <p>Exploring the laws of nature from microscopic particles to the universe</p>
+</section>
+
+
+<!-- ============================================================
+     ABOUT ME — EDIT: the three paragraphs below
+     ============================================================ -->
+<section class="container" id="about">
+  <h1 class="title">About Me</h1>
+
+  <div class="card">
+    <p>
+      I am a physics student passionate about fundamental science and scientific exploration.
+    </p>
+    <br>
+    <p>
+      My interests include condensed matter physics, space science, materials science,
+      and computational physics.
+    </p>
+    <br>
+    <p>
+      Through theoretical analysis, experimental exploration, and numerical simulation,
+      I aim to understand the fundamental principles governing nature.
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RESEARCH INTERESTS — EDIT: add/remove/edit .card blocks
+     (copy a whole <div class="card">...</div> block to add one)
+     ============================================================ -->
+<section class="container" id="research">
+  <h1 class="title">Research Interests</h1>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🔬 Condensed Matter Physics</h3>
+      <p>
+        Exploring material structures, electronic properties,
+        phase transitions, and emergent phenomena.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🛰 Space Science</h3>
+      <p>
+        Interested in asteroid exploration, planetary science,
+        and deep-space mission design.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💻 Computational Physics</h3>
+      <p>
+        Using Python, numerical simulation, and data analysis
+        to investigate physical systems.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RESEARCH PROJECTS — EDIT: add/remove/edit .card blocks
+     ============================================================ -->
+<section class="container" id="project">
+  <h1 class="title">Research Projects</h1>
+
+  <div class="cards">
+
+    <div class="card">
+      <h3>🚀 Vesta Sample Return Mission Design</h3>
+      <p>
+        Designed a conceptual asteroid sample return mission based on Dawn mission data.
+        <br><br>
+        Focused on:
+        <br>• Orbital trajectory design
+        <br>• Scientific objectives
+        <br>• Sampling strategy
+        <br>• Mission architecture
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌌 Interactive Star Map System</h3>
+      <p>
+        Developed a web-based astronomical visualization system.
+        <br><br>
+        Implemented:
+        <br>• 3D celestial visualization
+        <br>• Space data presentation
+        <br>• Interactive exploration interface
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🤖 AI-Based Learning Management System</h3>
+      <p>
+        Designed an intelligent learning assistant integrating:
+        <br><br>
+        • OCR recognition
+        <br>• Knowledge management
+        <br>• Automated error analysis
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ACADEMIC JOURNEY — EDIT: add/remove/edit .item blocks
+     ============================================================ -->
+<section class="container" id="timeline">
+  <h1 class="title">Academic Journey</h1>
+
+  <div class="timeline">
+
+    <div class="item">
+      <div class="year">2025</div>
+      <p>
+        Started systematic training in university physics,
+        including mathematics, mechanics, and electromagnetism.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="year">2026</div>
+      <p>
+        Deepened understanding of physics fundamentals
+        and explored potential research directions.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="year">Future</div>
+      <p>
+        Seeking opportunities to participate in scientific research
+        and contribute to physics exploration.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TECHNICAL SKILLS — EDIT: add/remove <span class="tag"> items
+     ============================================================ -->
+<section class="container">
+  <h1 class="title">Technical Skills</h1>
+
+  <span class="tag">Python</span>
+  <span class="tag">C Programming</span>
+  <span class="tag">MATLAB</span>
+  <span class="tag">HTML/CSS/JavaScript</span>
+  <span class="tag">Scientific Computing</span>
+  <span class="tag">Physics Modeling</span>
+</section>
+
+
+<!-- ============================================================
+     CONTACT — EDIT: your real email and GitHub link
+     ============================================================ -->
+<section class="container" id="contact">
+  <h1 class="title">Contact</h1>
+
+  <div class="card">
+    <p>Email: <a href="mailto:your@email.com">your@email.com</a></p>
+    <p>GitHub: <a href="https://github.com/yourname" target="_blank" rel="noopener">github.com/yourname</a></p>
+  </div>
+</section>
+
+
+<script>
+/* ==================================================================
+   ANIMATED STARFIELD BACKGROUND — NASA deep-space style
+   No edits needed here. STAR_COUNT below controls star density.
+   ================================================================== */
+(function(){
+const container =
+document.getElementById(
+"universe-background"
+);
+
+const scene =
+new THREE.Scene();
+
+const camera =
+new THREE.PerspectiveCamera(
+75,
+window.innerWidth/window.innerHeight,
+0.1,
+1000
+);
+
+const renderer =
+new THREE.WebGLRenderer({
+alpha:true,
+antialias:true
+});
+
+renderer.setSize(
+window.innerWidth,
+window.innerHeight
+);
+
+container.appendChild(
+renderer.domElement
+);
+
+camera.position.z=30;
+
+// 星空
+
+let geometry =
+new THREE.BufferGeometry();
+let positions=[];
+for(let i=0;i<4000;i++){
+positions.push(
+(Math.random()-0.5)*600,
+(Math.random()-0.5)*600,
+(Math.random()-0.5)*600
+);
+}
+geometry.setAttribute(
+"position",
+new THREE.Float32BufferAttribute(
+positions,
+3
+)
+);
+let stars =
+new THREE.Points(
+geometry,
+new THREE.PointsMaterial({
+color:0xffffff,
+size:0.8
+})
+);
+scene.add(stars);
+
+// 动画
+
+function animate(){
+requestAnimationFrame(
+animate
+);
+stars.rotation.y+=0.0004;
+stars.rotation.x+=0.0001;
+renderer.render(
+scene,
+camera
+);
+}
+animate();
+
+// 自适应
+
+window.onresize=function(){
+camera.aspect=
+window.innerWidth/
+window.innerHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(
+window.innerWidth,
+window.innerHeight
+);
+};
+})();
+</script>
+
+</body>
+</html>
