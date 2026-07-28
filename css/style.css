@@ -133,4 +133,13 @@ display:block;
     .hero h1{ font-size:40px; }
     nav a{ margin:8px; font-size:13px; }
   }
+
+  .avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid white;
+  margin-bottom:30px;
+  }
 </style>
