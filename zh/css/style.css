@@ -1,0 +1,693 @@
+
+  /* ============================================================
+     THEME VARIABLES — edit these to restyle the whole site at once
+     ============================================================ */
+  :root{
+    --bg:            #020617;   /* page background */
+    --bg-end:        #000000;   /* bottom of the starfield gradient */
+    --accent:        #55ddff;   /* headings, borders, links */
+    --accent-soft:   #72ddff;   /* card headings, subtitle */
+    --text-body:     #dbeafe;   /* hero paragraph */
+    --text-muted:    #9eeaff;   /* tag text */
+    --card-bg:       rgba(255,255,255,0.08);
+    --card-bg-hover: rgba(255,255,255,0.15);
+    --card-border:   rgba(255,255,255,0.15);
+    --nav-bg:        rgba(0,0,0,0.35);
+    --tag-bg:        rgba(50,200,255,.15);
+    --max-width:     1100px;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:"Inter","Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);
+    color:#fff;
+    line-height:1.8;
+    overflow-x:hidden;
+  }
+
+  #universe-background{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-10;
+background:#000;
+overflow:hidden;
+}
+
+#universe-background canvas{
+width:100%;
+height:100%;
+display:block;
+}
+
+  /* ---------- Navigation ---------- */
+  nav{
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    padding:18px;
+    background:var(--nav-bg);
+    backdrop-filter:blur(12px);
+    z-index:10;
+    text-align:center;
+  }
+  nav a{
+    color:#fff;
+    text-decoration:none;
+    margin:20px;
+    font-size:16px;
+  }
+  nav a:hover{ color:var(--accent); }
+
+  /* Offsets so fixed nav doesn't cover section headings when jumped to */
+  section[id]{ scroll-margin-top:80px; }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+  }
+  .hero h1{ font-size:70px; letter-spacing:8px; }
+  .hero h2{ font-weight:normal; color:var(--accent-soft); margin-top:20px; }
+  .hero p{ margin-top:30px; font-size:20px; color:var(--text-body); max-width:640px; }
+
+  /* ---------- Content wrapper ---------- */
+  .container{ max-width:var(--max-width); margin:auto; padding:90px 30px; }
+
+  .title{
+    font-size:38px;
+    color:var(--accent);
+    margin-bottom:35px;
+    border-left:5px solid var(--accent);
+    padding-left:15px;
+  }
+
+  /* ---------- Cards ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+  }
+  .card{
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:20px;
+    padding:30px;
+    transition:.3s;
+  }
+  .card:hover{
+    transform:translateY(-8px);
+    background:var(--card-bg-hover);
+  }
+  .card h3{ color:var(--accent-soft); margin-bottom:15px; }
+
+  /* ---------- Timeline ---------- */
+  .timeline{ border-left:3px solid var(--accent); padding-left:30px; }
+  .item{ margin-bottom:35px; }
+  .year{ color:var(--accent); font-size:25px; font-weight:bold; }
+
+  /* ---------- Skill tags ---------- */
+  .tag{
+    display:inline-block;
+    padding:8px 18px;
+    margin:8px;
+    background:var(--tag-bg);
+    border-radius:30px;
+    color:var(--text-muted);
+  }
+
+  .contact a{ color:var(--accent); }
+
+  @media(max-width:600px){
+    .hero h1{ font-size:40px; }
+    nav a{ margin:8px; font-size:13px; }
+  }
+
+  .avatar{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid white;
+  margin-bottom:30px;
+  }
+
+  #universe-background{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-10;
+  background:#000;
+  }
+  .project-summary{
+  margin-bottom:16px;
+  color:var(--text-body);
+  }
+
+  .project-points{
+  margin:16px 0 20px 20px;
+  color:var(--text-body);
+  }
+
+  .project-points li{
+  margin-bottom:8px;
+  }
+
+  .project-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:18px;
+  }
+
+  .project-tags .tag{
+  margin:0;
+  padding:6px 12px;
+  font-size:13px;
+  }
+
+  .project-status{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 25px;
+  border:1px solid rgba(85,221,255,0.45);
+  border-radius:20px;
+  color:var(--text-body);
+  background:rgba(85,221,255,0.08);
+  }
+
+
+  .project-link{
+  display:inline-block;
+  margin-top:20px;
+  padding:10px 25px;
+  border-radius:20px;
+  background:#55ddff;
+  color:#000;
+  text-decoration:none;
+  }
+
+  .project-link:hover{
+  background:white;
+  }
+
+/* ---------- VESTA mission page ---------- */
+.mission-page{
+  min-height:100vh;
+  background:#05070D;
+  color:#fff;
+}
+
+.mission-nav{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:20;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:24px;
+  padding:18px 36px;
+  background:rgba(0,0,0,.62);
+  border-bottom:1px solid rgba(245,193,108,.22);
+  backdrop-filter:blur(14px);
+}
+
+.mission-nav .project-name,
+.mission-nav .mission-brand{
+  color:#F5C16C;
+  font-weight:800;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.mission-nav a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.mission-nav a:hover{ color:#F5C16C; }
+
+.mission-hero{
+  min-height:92vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 28px 80px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(245,193,108,.20), transparent 30%),
+    radial-gradient(circle at 80% 20%, rgba(181,90,42,.20), transparent 28%),
+    linear-gradient(180deg, rgba(5,7,13,.30), #05070D 86%);
+}
+
+.mission-kicker{
+  margin-bottom:18px;
+  color:#F5C16C;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.mission-title{
+  margin:0;
+  font-size:clamp(56px, 8vw, 72px);
+  line-height:1;
+  letter-spacing:9px;
+  text-transform:uppercase;
+}
+
+.mission-subtitle{
+  max-width:760px;
+  margin:28px auto 0;
+  color:#c9ced8;
+  font-size:20px;
+  line-height:1.7;
+}
+
+.mission-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+  gap:24px;
+}
+
+.mission-card{
+  padding:28px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(245,193,108,.46);
+  border-radius:22px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+
+.mission-card h3{ color:#F5C16C; }
+
+.mission-timeline,
+.mission-flow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:22px;
+  align-items:stretch;
+}
+
+.mission-timeline > *,
+.mission-flow > *{
+  flex:1 1 260px;
+}
+
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+  gap:18px;
+}
+
+.stat-card{
+  padding:22px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(181,90,42,.45);
+  border-radius:18px;
+}
+
+.cost-number{
+  color:#F5C16C;
+  font-size:clamp(42px, 7vw, 72px);
+  font-weight:800;
+  line-height:1;
+}
+
+@media(max-width:700px){
+  .mission-nav{
+    padding:14px 20px;
+    flex-direction:column;
+  }
+
+  .mission-title{
+    font-size:46px;
+    letter-spacing:5px;
+  }
+
+  .mission-subtitle{ font-size:17px; }
+}
+
+/* ---------- Vesta project page refinements ---------- */
+.vesta-page{
+  background:var(--bg);
+}
+
+.vesta-hero{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 50% 38%, rgba(85,221,255,.14), transparent 26%),
+    radial-gradient(circle at 78% 24%, rgba(114,221,255,.10), transparent 28%);
+}
+
+.eyebrow{
+  margin-top:0;
+  margin-bottom:10px;
+  color:var(--accent);
+  font-size:14px;
+  font-weight:700;
+  letter-spacing:3px;
+  text-transform:uppercase;
+}
+
+.stat-cards{
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+.stat-cards .card p,
+.cost-total{
+  color:var(--accent-soft);
+  font-size:28px;
+  font-weight:700;
+}
+
+.feature-list{
+  margin-top:0;
+}
+
+.formula{
+  margin-top:18px;
+  color:var(--text-body);
+  font-size:20px;
+}
+
+.sample-tags{
+  margin-top:0;
+}
+
+.cost-card{
+  text-align:center;
+}
+
+.cost-card .project-tags{
+  justify-content:center;
+}
+
+/* ============================================================
+   VESTA PAGE ENHANCEMENTS — new interactive sections
+   (Orbital Mechanics / MCDA Site Tool / Gantt / Cost Dashboard /
+    Spacecraft Specs / Sample Workflow)
+   Uses the same --accent / --card-bg variables as the rest of
+   the site, so it stays visually consistent automatically.
+   ============================================================ */
+
+/* ---------- shared section sub-heading ---------- */
+.section-lede{
+  max-width:760px;
+  color:var(--text-body);
+  margin:-15px 0 30px;
+  font-size:16px;
+}
+
+/* ---------- image upload placeholder frame ----------
+   Used anywhere the page expects a real photo/diagram.
+   If the <img> fails to load (because you haven't added the
+   file yet) it collapses gracefully into a labeled dashed box
+   instead of a broken-image icon.
+   -------------------------------------------------------- */
+.image-frame{
+  position:relative;
+  min-height:220px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px dashed var(--card-border);
+  background:rgba(255,255,255,.04);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.image-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
+.image-frame.img-missing img{ display:none; }
+.image-frame.img-missing::after{
+  content:attr(data-placeholder);
+  color:var(--text-muted);
+  font-size:14px;
+  text-align:center;
+  padding:24px;
+  line-height:1.7;
+  white-space:pre-line;
+}
+
+/* ---------- Section 1: Orbital Mechanics ---------- */
+.orbit-layout{
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  gap:28px;
+  align-items:start;
+}
+@media(max-width:860px){ .orbit-layout{ grid-template-columns:1fr; } }
+
+.orbit-canvas-wrap{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:20px;
+  padding:16px;
+}
+.orbit-canvas-wrap canvas{ width:100%; display:block; border-radius:12px; }
+.orbit-legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:16px;
+  margin-top:14px;
+  font-size:13px;
+  color:var(--text-muted);
+}
+.orbit-legend span{ display:flex; align-items:center; gap:6px; }
+.dot{ width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+.param-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-bottom:20px; }
+.param-grid .stat{
+  background:var(--card-bg);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:16px;
+}
+.param-grid .stat .label{ font-size:12px; letter-spacing:1px; text-transform:uppercase; color:var(--text-muted); }
+.param-grid .stat .value{ font-size:22px; color:var(--accent); font-weight:700; margin-top:4px; }
+
+.dv-table{ width:100%; border-collapse:collapse; font-size:14px; }
+.dv-table th,.dv-table td{ text-align:left; padding:10px 12px; border-bottom:1px solid var(--card-border); }
+.dv-table th{ color:var(--accent-soft); font-weight:600; }
+.dv-table tr:last-child td{ color:var(--accent); font-weight:700; border-bottom:none; }
+.dv-table .bar-cell{ width:40%; }
+.dv-bar{ height:8px; border-radius:6px; background:rgba(85,221,255,.18); overflow:hidden; }
+.dv-bar > span{ display:block; height:100%; background:var(--accent); border-radius:6px; }
+
+/* ---------- Section 2: MCDA Site Selection ---------- */
+.mcda-layout{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media(max-width:860px){ .mcda-layout{ grid-template-columns:1fr; } }
+
+.formula-box{
+  font-size:15px;
+  line-height:2;
+  color:var(--accent-soft);
+  background:rgba(85,221,255,.06);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:18px 20px;
+  margin-bottom:22px;
+  overflow-x:auto;
+  white-space:pre;
+}
+
+.slider-row{ margin-bottom:18px; }
+.slider-row label{ display:flex; justify-content:space-between; font-size:14px; color:var(--text-body); margin-bottom:8px; }
+.slider-row output{ color:var(--accent); font-weight:700; }
+.slider-row input[type=range]{
+  width:100%;
+  accent-color:var(--accent);
+  height:4px;
+}
+
+.score-readout{
+  margin-top:22px;
+  padding:20px;
+  border-radius:16px;
+  background:rgba(85,221,255,.08);
+  border:1px solid rgba(85,221,255,.35);
+  text-align:center;
+}
+.score-readout .score-value{ font-size:44px; font-weight:800; color:var(--accent); }
+.score-readout .score-label{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+
+.weight-bar{ display:flex; height:14px; border-radius:8px; overflow:hidden; margin-top:14px; }
+.weight-bar span{ height:100%; }
+.weight-key{ display:flex; flex-wrap:wrap; gap:12px; margin-top:10px; font-size:12px; color:var(--text-muted); }
+.weight-key span{ display:flex; align-items:center; gap:6px; }
+
+.site-map-wrap{ text-align:center; }
+.site-map-wrap canvas{ max-width:100%; }
+.site-list{ display:flex; justify-content:center; gap:18px; margin-top:12px; flex-wrap:wrap; font-size:13px; }
+.site-list .site{ display:flex; align-items:center; gap:6px; color:var(--text-body); }
+
+/* ---------- Section 3: Mission Gantt ---------- */
+.gantt{ position:relative; }
+.gantt-axis{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:var(--text-muted);
+  margin-bottom:6px;
+  padding:0 2px;
+}
+.gantt-track{
+  position:relative;
+  height:52px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--card-border);
+  border-radius:10px;
+  margin-bottom:10px;
+  overflow:visible;
+}
+.gantt-bar{
+  position:absolute;
+  top:8px;
+  height:36px;
+  border-radius:8px;
+  background:var(--accent);
+  opacity:.85;
+  color:#031018;
+  font-size:12px;
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  padding:0 10px;
+  white-space:nowrap;
+  overflow:hidden;
+  cursor:default;
+  transition:.2s;
+}
+.gantt-bar:hover{ opacity:1; transform:translateY(-2px); box-shadow:0 8px 20px rgba(85,221,255,.35); }
+.gantt-bar .tip{
+  position:absolute;
+  bottom:120%;
+  left:0;
+  min-width:220px;
+  background:#04101c;
+  border:1px solid var(--card-border);
+  border-radius:10px;
+  padding:10px 12px;
+  font-size:12px;
+  font-weight:400;
+  color:var(--text-body);
+  opacity:0;
+  pointer-events:none;
+  transition:.2s;
+  z-index:5;
+  white-space:normal;
+}
+.gantt-bar:hover .tip{ opacity:1; }
+.gantt-milestones{ display:flex; justify-content:space-between; margin-top:4px; }
+.gantt-milestones span{ font-size:12px; color:var(--text-muted); }
+
+/* ---------- Section 4: Cost Dashboard ---------- */
+.cost-dash{ display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+@media(max-width:860px){ .cost-dash{ grid-template-columns:1fr; } }
+
+.donut-wrap{ display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:center; }
+.donut{
+  width:180px; height:180px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.donut::before{
+  content:"";
+  position:absolute;
+  inset:26px;
+  border-radius:50%;
+  background:var(--bg);
+}
+.donut .donut-center{ position:relative; z-index:1; }
+.donut-center{ text-align:center; }
+.donut-center .big{ font-size:22px; font-weight:800; color:var(--accent); }
+.donut-center .small{ font-size:11px; color:var(--text-muted); }
+.donut-legend{ font-size:13px; }
+.donut-legend div{ display:flex; align-items:center; gap:8px; margin-bottom:8px; color:var(--text-body); }
+.donut-legend .pct{ color:var(--accent-soft); font-weight:700; margin-left:auto; }
+
+.compare-bars{ display:flex; flex-direction:column; gap:16px; }
+.compare-row .label-row{ display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px; color:var(--text-body); }
+.compare-track{ height:14px; border-radius:8px; background:rgba(255,255,255,.06); overflow:hidden; }
+.compare-track > span{ display:block; height:100%; border-radius:8px; }
+
+.uncertainty{ margin-top:24px; }
+.unc-row{ display:flex; align-items:center; gap:14px; margin-bottom:12px; font-size:13px; }
+.unc-row .unc-name{ width:110px; color:var(--text-muted); flex-shrink:0; }
+.unc-track{ position:relative; flex:1; height:10px; background:rgba(255,255,255,.06); border-radius:6px; }
+.unc-fill{ position:absolute; top:0; height:100%; border-radius:6px; background:var(--accent); opacity:.55; }
+
+/* ---------- Section 5: Spacecraft Specs ---------- */
+.craft-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+@media(max-width:860px){ .craft-grid{ grid-template-columns:1fr; } }
+.craft-card{ text-align:center; }
+.craft-mass{ font-size:30px; font-weight:800; color:var(--accent); margin:10px 0; }
+.craft-card ul{ text-align:left; margin-top:12px; padding-left:18px; color:var(--text-body); font-size:14px; }
+.craft-card ul li{ margin-bottom:6px; }
+
+.spec-table{ width:100%; border-collapse:collapse; font-size:14px; margin-top:10px; }
+.spec-table th,.spec-table td{ text-align:left; padding:9px 12px; border-bottom:1px solid var(--card-border); }
+.spec-table th{ color:var(--accent-soft); }
+
+.payload-table{ width:100%; border-collapse:collapse; font-size:13px; margin-top:10px; }
+.payload-table th,.payload-table td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--card-border); }
+.payload-table th{ color:var(--accent-soft); position:sticky; top:0; }
+.cost-pill{ display:inline-block; padding:3px 10px; border-radius:20px; font-size:11px; font-weight:700; }
+.cost-high{ background:rgba(255,120,120,.15); color:#ff9b9b; }
+.cost-med{ background:rgba(255,210,120,.15); color:#ffd27a; }
+.cost-low{ background:rgba(120,255,180,.15); color:#8affc1; }
+.payload-scroll{ max-height:340px; overflow-y:auto; border:1px solid var(--card-border); border-radius:14px; padding:0 14px; }
+
+/* ---------- Section 6: Sample Analysis Workflow ---------- */
+.workflow{ display:flex; flex-direction:column; gap:0; }
+.workflow-step{
+  display:grid;
+  grid-template-columns:60px 1fr;
+  gap:20px;
+  padding:20px 0;
+  border-left:2px solid var(--card-border);
+  margin-left:29px;
+  padding-left:24px;
+  position:relative;
+}
+.workflow-step:last-child{ border-left:2px solid transparent; }
+.workflow-num{
+  position:absolute;
+  left:-31px;
+  top:20px;
+  width:60px; height:60px;
+  border-radius:50%;
+  background:var(--card-bg);
+  border:2px solid var(--accent);
+  color:var(--accent);
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; font-weight:800;
+}
+.workflow-body h4{ color:var(--accent-soft); margin-bottom:6px; }
+.workflow-body p{ color:var(--text-body); font-size:14px; margin-bottom:8px; }
+.goal-tag{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.5px;
+  padding:4px 10px;
+  border-radius:20px;
+  background:rgba(85,221,255,.12);
+  color:var(--accent);
+  border:1px solid rgba(85,221,255,.35);
+}
