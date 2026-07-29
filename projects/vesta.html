@@ -16,7 +16,10 @@
   <a href="#mission-overview">Overview</a>
   <a href="#science">Science</a>
   <a href="#architecture">Architecture</a>
+  <a href="#orbital-mechanics">Orbital</a>
+  <a href="#site-selection">Site Selection</a>
   <a href="#sample-science">Samples</a>
+  <a href="#cost-analysis">Cost</a>
 </nav>
   
 <main>
@@ -120,6 +123,86 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       NEW SECTION — Orbital Mechanics
+       ✏️ TEXT CONTENT TO EDIT: the lede paragraph, the four
+       key-parameter cards, and every row of the ΔV budget table.
+       Numbers below are placeholders based on a generic Earth→Vesta
+       Hohmann-class transfer — replace with your own trajectory work.
+       ============================================================ -->
+  <section class="container" id="orbital-mechanics">
+    <h1 class="title">Orbital Mechanics</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      A Hohmann-class heliocentric transfer carries the spacecraft from Earth
+      orbit to Vesta's orbit. The animation below is a simplified schematic —
+      not a precision ephemeris — showing the relative motion of Earth, Vesta,
+      and the spacecraft's transfer arc.
+    </p>
+
+    <div class="orbit-layout">
+      <div class="orbit-canvas-wrap">
+        <!-- CODE: animated Canvas 2D orbital sketch, driven by js/vesta-interactive.js -->
+        <canvas id="orbit-canvas" width="520" height="420" aria-label="Heliocentric transfer animation"></canvas>
+        <div class="orbit-legend">
+          <span><i class="dot" style="background:#F5C16C"></i>Sun</span>
+          <span><i class="dot" style="background:#55ddff"></i>Earth</span>
+          <span><i class="dot" style="background:#e8e8e8"></i>Vesta</span>
+          <span><i class="dot" style="background:#F5C16C"></i>Spacecraft</span>
+        </div>
+      </div>
+
+      <div>
+        <!-- ✏️ TEXT CONTENT: key parameter cards -->
+        <div class="param-grid">
+          <div class="stat"><div class="label">Launch Window</div><div class="value">2028</div></div>
+          <div class="stat"><div class="label">Transfer Duration</div><div class="value">398 days</div></div>
+          <div class="stat"><div class="label">C3 Energy</div><div class="value">14.2 km²/s²</div></div>
+          <div class="stat"><div class="label">Arrival Phase</div><div class="value">2029</div></div>
+        </div>
+
+        <!-- ✏️ TEXT CONTENT: ΔV budget rows — edit stage names / values -->
+        <table class="dv-table">
+          <thead>
+            <tr><th>Maneuver</th><th class="bar-cell">Δv share</th><th>Δv (km/s)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Earth escape</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:29%"></span></div></td>
+              <td>3.2</td>
+            </tr>
+            <tr>
+              <td>Heliocentric transfer</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:43%"></span></div></td>
+              <td>4.8</td>
+            </tr>
+            <tr>
+              <td>Vesta orbit capture</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:10%"></span></div></td>
+              <td>1.1</td>
+            </tr>
+            <tr>
+              <td>Departure to return trajectory</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:13%"></span></div></td>
+              <td>1.4</td>
+            </tr>
+            <tr>
+              <td>Return targeting</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:5%"></span></div></td>
+              <td>0.6</td>
+            </tr>
+            <tr>
+              <td>Total mission Δv</td>
+              <td class="bar-cell"></td>
+              <td>11.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <section class="container" id="exploration-system">
     <h1 class="title">Three-Level Exploration System</h1>
     <div class="cards">
@@ -139,19 +222,308 @@
     </div>
   </section>
 
-  <section class="container" id="spacecraft-architecture">
-    <h1 class="title">Spacecraft Architecture</h1>
-    <div class="cards">
-      <article class="card"><h3>Orbiter</h3><p>Performs remote sensing and communications relay.</p></article>
-      <article class="card"><h3>Lander</h3><p>Supports surface measurements and sample acquisition.</p></article>
-      <article class="card"><h3>Return Capsule</h3><p>Protects the collected material during Earth return.</p></article>
+  <!-- ============================================================
+       NEW SECTION — MCDA Site-Selection Interactive Tool
+       ✏️ TEXT CONTENT TO EDIT: intro paragraph, the fixed Olivine
+       Index / Space-Weathering constants noted below the sliders,
+       and the three candidate-site labels (NP-03 / EQ-02 / SP-01).
+       CODE: sliders are wired up in js/vesta-interactive.js
+       (functions updateScore() and the #site-map-canvas drawing).
+       ============================================================ -->
+  <section class="container" id="site-selection">
+    <h1 class="title">MCDA Site-Selection Tool</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      Candidate sampling sites are ranked with a weighted multi-criteria
+      decision analysis (MCDA). Drag the sliders to see how spectral,
+      terrain, thermal, and engineering factors trade off against each other.
+    </p>
+
+    <div class="mcda-layout">
+      <div class="card">
+        <div class="formula-box">Site Score = 0.4 × (PBD + Olivine_Index − Space_Weathering)
+           + 0.2 × (1 − slope / 30°)
+           + 0.3 × (1 − (I − I₀)²)
+           + 0.1 × (1 − Δv / Δv_max)</div>
+
+        <div class="slider-row">
+          <label>Pyroxene Band Depth (PBD) <output id="mcda-pbd-out">0.55</output></label>
+          <input type="range" id="mcda-pbd" min="0" max="1" step="0.01" value="0.55">
+        </div>
+        <div class="slider-row">
+          <label>Surface Slope <output id="mcda-slope-out">12°</output></label>
+          <input type="range" id="mcda-slope" min="0" max="30" step="1" value="12">
+        </div>
+        <div class="slider-row">
+          <label>Thermal Inertia (I) <output id="mcda-thermal-out">250</output></label>
+          <input type="range" id="mcda-thermal" min="0" max="500" step="5" value="250">
+        </div>
+        <div class="slider-row">
+          <label>Landing Δv Cost <output id="mcda-dv-out">180 m/s</output></label>
+          <input type="range" id="mcda-dv" min="0" max="500" step="10" value="180">
+        </div>
+
+        <!-- ✏️ TEXT CONTENT: held-constant terms shown to the reader -->
+        <p style="font-size:12px;color:var(--text-muted);">
+          Olivine Index fixed at 0.60 · Space-Weathering fixed at 0.20 · I₀ = 250 (optimal thermal inertia) · Δv_max = 500 m/s
+        </p>
+
+        <div class="score-readout">
+          <div class="score-label">Composite Site Score</div>
+          <div class="score-value" id="mcda-score">0.000</div>
+        </div>
+
+        <div class="weight-bar">
+          <span style="width:40%;background:#55ddff" title="Spectral 0.4"></span>
+          <span style="width:20%;background:#72ddff" title="Terrain 0.2"></span>
+          <span style="width:30%;background:#F5C16C" title="Thermal 0.3"></span>
+          <span style="width:10%;background:#8affc1" title="Engineering 0.1"></span>
+        </div>
+        <div class="weight-key">
+          <span><i class="dot" style="background:#55ddff"></i>Spectral 0.4</span>
+          <span><i class="dot" style="background:#72ddff"></i>Terrain 0.2</span>
+          <span><i class="dot" style="background:#F5C16C"></i>Thermal 0.3</span>
+          <span><i class="dot" style="background:#8affc1"></i>Engineering 0.1</span>
+        </div>
+      </div>
+
+      <div class="card site-map-wrap">
+        <h3 style="margin-bottom:14px;">Candidate Landing Sites</h3>
+        <!-- CODE: procedurally-drawn Vesta disc + site markers -->
+        <canvas id="site-map-canvas" width="320" height="320" aria-label="Vesta site-selection map"></canvas>
+        <div class="site-list">
+          <span class="site"><i class="dot" style="background:#55ddff"></i>NP-03 · North Polar</span>
+          <span class="site"><i class="dot" style="background:#F5C16C"></i>EQ-02 · Equatorial</span>
+          <span class="site"><i class="dot" style="background:#8affc1"></i>SP-01 · South Polar</span>
+        </div>
+
+        <!-- 🖼️ IMAGE UPLOAD AREA — optional real reference image.
+             Swap the src for your own Dawn-mission mosaic or your own
+             annotated map (recommended ~800×800px). Same pattern as
+             the avatar image on the homepage: <img src="image/avatar.png"> -->
+        <div class="image-frame" style="margin-top:18px;" data-placeholder="🖼️ Add image here&#10;Dawn mission global mosaic of Vesta&#10;path: image/vesta-global-mosaic.jpg">
+          <img src="../image/vesta-global-mosaic.jpg" alt="Dawn mission global mosaic of Vesta"
+               onerror="this.parentElement.classList.add('img-missing')">
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- ============================================================
+       NEW SECTION — Mission Timeline (Gantt)
+       ✏️ TEXT CONTENT TO EDIT: phase names, day ranges, and the
+       hover-tooltip descriptions (inside each .tip div).
+       CODE: bar left%/width% are set inline from a 240-day axis —
+       recompute if you change any phase length.
+       ============================================================ -->
+  <section class="container" id="mission-gantt">
+    <h1 class="title">240-Day Sampling Campaign</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      Once in Vesta orbit, the mission moves through five phases before the
+      return capsule is sealed for departure. Hover any bar for phase details.
+    </p>
+
+    <div class="card gantt">
+      <div class="gantt-axis">
+        <span>Day 0</span><span>60</span><span>120</span><span>180</span><span>Day 240</span>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:0%; width:10.4%;">
+          Approach
+          <div class="tip"><strong>Approach &amp; Global Survey</strong><br>Day 0–25 · orbit insertion, global spectral and topographic mapping.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:10.4%; width:75%; background:#72ddff;">
+          Site Characterization
+          <div class="tip"><strong>Candidate Site Characterization</strong><br>Day 25–205 · low-altitude survey passes, touch-and-go rehearsals, final site down-select.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:85.4%; width:4.2%; background:#F5C16C;">
+          Sampling
+          <div class="tip"><strong>Touch-and-Go Sampling</strong><br>Day 205–215 · descent, sample acquisition, immediate ascent.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:89.6%; width:6.25%; background:#8affc1;">
+          Ascent
+          <div class="tip"><strong>Ascent, Verification &amp; Departure Prep</strong><br>Day 215–230 · sample integrity check, seal return capsule, prep for departure burn.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:95.8%; width:4.2%; background:#c9a0ff;">
+          Margin
+          <div class="tip"><strong>Contingency / Margin</strong><br>Day 230–240 · reserved for anomaly recovery or a second sampling attempt.</div>
+        </div>
+      </div>
+      <div class="gantt-milestones">
+        <span>25d: site survey complete</span>
+        <span>205d: site locked in</span>
+        <span>215d: sample secured</span>
+        <span>230d: capsule sealed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SPACECRAFT ARCHITECTURE — enhanced into a full spec sheet
+       ✏️ TEXT CONTENT TO EDIT: masses, subsystem bullet lists,
+       seismometer spec rows, and every row of the payload table.
+       🖼️ IMAGE UPLOAD AREA is marked below — same pattern as the
+       homepage avatar: <img src="image/avatar.png">
+       ============================================================ -->
+  <section class="container" id="spacecraft-architecture">
+    <h1 class="title">Spacecraft Architecture</h1>
+
+    <div class="craft-grid">
+      <article class="card craft-card">
+        <h3>🛰 Orbiter</h3>
+        <div class="craft-mass">~450 kg</div>
+        <p>Performs remote sensing and communications relay.</p>
+        <ul>
+          <li>VNIR imaging spectrometer</li>
+          <li>Gamma-ray &amp; neutron spectrometer</li>
+          <li>High-gain relay antenna</li>
+        </ul>
+      </article>
+      <article class="card craft-card">
+        <h3>🤖 Lander</h3>
+        <div class="craft-mass">~120 kg</div>
+        <p>Supports surface measurements and sample acquisition.</p>
+        <ul>
+          <li>Sea-Urchin seismometer array</li>
+          <li>Sample acquisition drill</li>
+          <li>Context imager</li>
+        </ul>
+      </article>
+      <article class="card craft-card">
+        <h3>🧪 Return Capsule</h3>
+        <div class="craft-mass">~45 kg</div>
+        <p>Protects the collected material during Earth return.</p>
+        <ul>
+          <li>Contamination-sealed sample vault</li>
+          <li>Ablative re-entry heat shield</li>
+          <li>Landing beacon</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- 🖼️ IMAGE UPLOAD AREA — replace with your own spacecraft
+         configuration diagram / render, ~1200×700px recommended.
+         Uses the same <img src="…"> pattern as the homepage avatar. -->
+    <div class="image-frame" style="margin-top:24px;" data-placeholder="🖼️ Add image here&#10;Orbiter / Lander / Return Capsule configuration diagram&#10;path: image/spacecraft-diagram.png">
+      <img src="../image/spacecraft-diagram.png" alt="VISIT.TA spacecraft configuration diagram"
+           onerror="this.parentElement.classList.add('img-missing')">
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h3>Sea-Urchin Seismometer — Spec Sheet</h3>
+      <table class="spec-table">
+        <tbody>
+          <tr><th>Mass</th><td>8.5 kg</td></tr>
+          <tr><th>Deployed diameter</th><td>0.45 m</td></tr>
+          <tr><th>Spine count</th><td>6–12, radially deployed</td></tr>
+          <tr><th>Anchor pull-out force</th><td>&gt; 200 N</td></tr>
+          <tr><th>Sensor band</th><td>0.05–50 Hz, tri-axial</td></tr>
+          <tr><th>Power draw</th><td>3.2 W nominal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h3>Payload Inventory <span style="color:var(--text-muted); font-size:14px; font-weight:400;">(13 instruments)</span></h3>
+      <div class="payload-scroll">
+        <table class="payload-table">
+          <thead><tr><th>Instrument</th><th>Location</th><th>Cost Level</th></tr></thead>
+          <tbody>
+            <tr><td>Visible–Near IR Imaging Spectrometer</td><td>Orbiter</td><td><span class="cost-pill cost-high">High</span></td></tr>
+            <tr><td>Gamma-Ray &amp; Neutron Spectrometer</td><td>Orbiter</td><td><span class="cost-pill cost-high">High</span></td></tr>
+            <tr><td>Framing Camera</td><td>Orbiter</td><td><span class="cost-pill cost-med">Medium</span></td></tr>
+            <tr><td>Laser Altimeter</td><td>Orbiter</td><td><span class="cost-pill cost-med">Medium</span></td></tr>
+            <tr><td>Magnetometer</td><td>Orbiter</td><td><span class="cost-pill cost-low">Low</span></td></tr>
+            <tr><td>Radio Science (gravity)</td><td>Orbiter</td><td><span class="cost-pill cost-low">Low</span></td></tr>
+            <tr><td>Thermal Infrared Mapper</td><td>Orbiter</td><td><span class="cost-pill cost-med">Medium</span></td></tr>
+            <tr><td>Context Imager</td><td>Lander</td><td><span class="cost-pill cost-med">Medium</span></td></tr>
+            <tr><td>Sea-Urchin Seismometer Array</td><td>Lander</td><td><span class="cost-pill cost-high">High</span></td></tr>
+            <tr><td>APXS (Alpha Particle X-ray Spectrometer)</td><td>Lander</td><td><span class="cost-pill cost-med">Medium</span></td></tr>
+            <tr><td>Sample Acquisition Drill</td><td>Lander</td><td><span class="cost-pill cost-high">High</span></td></tr>
+            <tr><td>Microscopic Imager</td><td>Lander</td><td><span class="cost-pill cost-low">Low</span></td></tr>
+            <tr><td>Meteorology &amp; Dust Package</td><td>Lander</td><td><span class="cost-pill cost-low">Low</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SAMPLE SCIENCE — enhanced into a 6-step lab workflow
+       ✏️ TEXT CONTENT TO EDIT: each step's title, description, and
+       which Goal tag (1/2/3) it maps to — Goals are defined in the
+       "Three Scientific Questions" section above.
+       ============================================================ -->
   <section class="container" id="sample-science">
-    <h1 class="title">Sample Science</h1>
+    <h1 class="title">Sample Analysis Workflow</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      Returned material moves through six lab stages, each tied back to one
+      of the mission's three core scientific questions.
+    </p>
+
     <div class="card">
-      <div class="project-tags sample-tags">
+      <div class="workflow">
+        <div class="workflow-step">
+          <div class="workflow-num">01</div>
+          <div class="workflow-body">
+            <h4>Contamination-free Unsealing</h4>
+            <p>Return capsule opened in a nitrogen-purged glovebox to preserve pristine volatile and organic content.</p>
+            <span class="goal-tag">Goal 1 · Protoplanet Interior</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">02</div>
+          <div class="workflow-body">
+            <h4>Curation &amp; Cataloging</h4>
+            <p>Sample split, weighed, imaged, and archived under strict planetary-protection protocols.</p>
+            <span class="goal-tag">Goal 1 · Protoplanet Interior</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">03</div>
+          <div class="workflow-body">
+            <h4>Mineralogy &amp; Petrology Analysis</h4>
+            <p>Thin-section and XRD analysis to compare mineral assemblages directly against HED meteorite collections.</p>
+            <span class="goal-tag">Goal 2 · HED Meteorites</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">04</div>
+          <div class="workflow-body">
+            <h4>Isotope &amp; Chronology Dating</h4>
+            <p>Radiometric dating constrains the timing of Vesta's crust-mantle-core differentiation.</p>
+            <span class="goal-tag">Goal 1 · Protoplanet Interior</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">05</div>
+          <div class="workflow-body">
+            <h4>Volatile &amp; Impact-Record Analysis</h4>
+            <p>Shock features and volatile inventories reveal the history of major basin-forming impacts.</p>
+            <span class="goal-tag">Goal 3 · Giant Impacts</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">06</div>
+          <div class="workflow-body">
+            <h4>Comparative Meteorite Cross-matching</h4>
+            <p>Spectral and isotopic fingerprints are cross-matched to Earth's HED meteorite archive to confirm provenance.</p>
+            <span class="goal-tag">Goal 2 · HED Meteorites</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-tags sample-tags" style="margin-top:8px;">
         <span class="tag">Mineralogy</span>
         <span class="tag">Isotope Analysis</span>
         <span class="tag">Volatile Analysis</span>
@@ -162,6 +534,13 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       COST ANALYSIS — enhanced into a full dashboard
+       ✏️ TEXT CONTENT TO EDIT: total cost, the 5 breakdown
+       percentages (must sum to 100 — also update the conic-gradient
+       stops in js/vesta-interactive.js if you change them),
+       comparison-mission figures, and the uncertainty range numbers.
+       ============================================================ -->
   <section class="container" id="cost-analysis">
     <h1 class="title">Cost Analysis</h1>
     <div class="card cost-card">
@@ -172,6 +551,65 @@
         <span class="tag">Launch System</span>
         <span class="tag">Integration</span>
         <span class="tag">Risk Margin</span>
+      </div>
+    </div>
+
+    <div class="cost-dash" style="margin-top:24px;">
+      <div class="card">
+        <h3 style="margin-bottom:16px;">Budget Breakdown</h3>
+        <div class="donut-wrap">
+          <!-- CODE: conic-gradient painted by js/vesta-interactive.js -->
+          <div class="donut" id="cost-donut">
+            <div class="donut-center">
+              <div class="big">$1.45B</div>
+              <div class="small">Total</div>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div><i class="dot" style="background:#55ddff"></i>Payload System <span class="pct">28%</span></div>
+            <div><i class="dot" style="background:#72ddff"></i>Platform &amp; Propulsion <span class="pct">24%</span></div>
+            <div><i class="dot" style="background:#F5C16C"></i>Launch System <span class="pct">18%</span></div>
+            <div><i class="dot" style="background:#8affc1"></i>Integration &amp; Test <span class="pct">15%</span></div>
+            <div><i class="dot" style="background:#c9a0ff"></i>Risk Margin <span class="pct">15%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:16px;">International Comparison</h3>
+        <div class="compare-bars">
+          <div class="compare-row">
+            <div class="label-row"><span>Hayabusa2 (JAXA)</span><span>$0.25B</span></div>
+            <div class="compare-track"><span style="width:17%;background:#8affc1;"></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="label-row"><span>OSIRIS-REx (NASA)</span><span>$1.15B</span></div>
+            <div class="compare-track"><span style="width:79%;background:#72ddff;"></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="label-row"><span>VISIT.TA (this concept)</span><span>$1.45B</span></div>
+            <div class="compare-track"><span style="width:100%;background:var(--accent);"></span></div>
+          </div>
+        </div>
+
+        <div class="uncertainty">
+          <h3 style="margin-bottom:14px; font-size:16px;">Cost Uncertainty Range</h3>
+          <div class="unc-row">
+            <span class="unc-name">Optimistic</span>
+            <div class="unc-track"><div class="unc-fill" style="left:0%; width:20%;"></div></div>
+            <span>$1.0–1.2B</span>
+          </div>
+          <div class="unc-row">
+            <span class="unc-name">Baseline</span>
+            <div class="unc-track"><div class="unc-fill" style="left:27%; width:20%;"></div></div>
+            <span>$1.3–1.5B</span>
+          </div>
+          <div class="unc-row">
+            <span class="unc-name">Conservative</span>
+            <div class="unc-track"><div class="unc-fill" style="left:55%; width:45%;"></div></div>
+            <span>$1.6–2.0B</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -189,6 +627,8 @@
   
 <script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
 <script src="../js/universe.js"></script>
+<!-- CODE: powers the orbital canvas, MCDA sliders, site map, and cost donut above -->
+<script src="../js/vesta-interactive.js"></script>
 </body>
 
 </html>
