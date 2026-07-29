@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISIT.TA 任务 | 灶神星项目</title>
+<link rel="stylesheet" href="../css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
+</head>
+
+<body class="vesta-page">
+<div id="universe-background"></div>
+
+<nav>
+  <a href="../index.html#projects">作品集</a>
+  <a href="../../projects/vesta.html">English</a>
+  <a href="#mission-overview">概览</a>
+  <a href="#science">科学</a>
+  <a href="#architecture">架构</a>
+  <a href="#orbital-mechanics">轨道</a>
+  <a href="#site-selection">选址</a>
+  <a href="#sample-science">样品</a>
+  <a href="#cost-analysis">成本</a>
+</nav>
+  
+<main>
+  <section class="hero vesta-hero" id="hero">
+    <p class="eyebrow">小行星探测概念</p>
+    <h1>VISIT.TA 任务</h1>
+    <h2>回到行星童年的旅程</h2>
+    <p>
+      探索灶神星——这颗幸存的原行星保存着类地行星最早期的历史。
+    </p>
+    <a href="#mission-overview" class="project-link">了解任务</a>
+  </section>
+
+  <section class="container" id="mission-overview">
+    <h1 class="title">任务概览</h1>
+    <div class="cards">
+      <article class="card">
+        <h3>🪐 目标：灶神星</h3>
+        <p>
+          灶神星是一颗经历分异的小行星，也是太阳系早期遗留下来的幸存原行星。
+        </p>
+      </article>
+      <article class="card">
+        <h3>❓ 科学问题</h3>
+        <p>
+          其古老地壳与内部结构记录了岩质行星体如何形成、分异与演化。
+        </p>
+      </article>
+      <article class="card">
+        <h3>🚀 方案：轨道探测 + 原位探测 + 采样返回</h3>
+        <p>
+          VISIT.TA 结合轨道遥感、原位探测与采样返回，以开展高精度实验室分析。
+        </p>
+      </article>
+    </div>
+  </section>
+  
+  <section class="container" id="vesta-fossil">
+    <h1 class="title">灶神星：行星形成的化石</h1>
+    <div class="cards stat-cards">
+      <div class="card"><h3>直径</h3><p>525 km</p></div>
+      <div class="card"><h3>质量</h3><p>2.6 × 10²⁰ kg</p></div>
+      <div class="card"><h3>密度</h3><p>3.4 g/cm³</p></div>
+      <div class="card"><h3>自转周期</h3><p>5.34 小时</p></div>
+      <div class="card"><h3>重力</h3><p>0.026 g</p></div>
+    </div>
+  </section>
+
+  <section class="container" id="science">
+    <h1 class="title">为什么灶神星重要</h1>
+    <div class="cards">
+      <article class="card">
+        <h3>🌋 幸存的原行星</h3>
+        <p>灶神星保存了类地行星构建材料的证据。</p>
+      </article>
+      <article class="card">
+        <h3>🧭 理解行星分异的窗口</h3>
+        <p>其层状结构有助于解释早期天体如何分离为地壳、地幔和核心。</p>
+      </article>
+      <article class="card">
+        <h3>🪨 HED 陨石的来源</h3>
+        <p>返回样品可将灶神星与地球上研究的陨石直接联系起来。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="container">
+    <h1 class="title">三大科学问题</h1>
+    <div class="card">
+      <ul class="project-points feature-list">
+        <li>揭示原行星内部结构</li>
+        <li>理解 HED 陨石</li>
+        <li>解读巨大撞击</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container" id="dawn-mission">
+    <h1 class="title">既往探测：黎明号任务</h1>
+    <div class="timeline">
+      <div class="item"><div class="year">2007</div><p>发射</p></div>
+      <div class="item"><div class="year">2011</div><p>抵达灶神星</p></div>
+      <div class="item"><div class="year">2012</div><p>全球测绘</p></div>
+      <div class="item"><div class="year">2018</div><p>任务完成</p></div>
+    </div>
+  </section>
+
+  <section class="container" id="architecture">
+    <h1 class="title">VISIT.TA 任务架构</h1>
+    <div class="cards">
+      <article class="card"><h3>🌍 地球</h3><p>2028 年发射</p></article>
+      <article class="card"><h3>🛰 巡航</h3><p>深空转移与接近操作</p></article>
+      <article class="card"><h3>🪐 灶神星轨道</h3><p>2029 年开始全球探测</p></article>
+      <article class="card"><h3>🤖 表面探测</h3><p>着陆、环境成像与采样点评估</p></article>
+      <article class="card"><h3>🧪 样品采集</h3><p>2030 年开展采样</p></article>
+      <article class="card"><h3>🏠 地球返回</h3><p>2031 年返回舱抵达地球</p></article>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEW SECTION — 轨道力学
+       ✏️ TEXT CONTENT TO EDIT: the lede paragraph, the four
+       key-parameter cards, and every row of the ΔV budget table.
+       Numbers below are placeholders based on a generic 地球→灶神星
+       Hohmann-class transfer — replace with your own trajectory work.
+       ============================================================ -->
+  <section class="container" id="orbital-mechanics">
+    <h1 class="title">轨道力学</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      霍曼型日心转移将航天器从地球轨道送往灶神星轨道。下方动画是简化示意图，并非精密星历，用于展示地球、灶神星与航天器转移弧段的相对运动。
+    </p>
+
+    <div class="orbit-layout">
+      <div class="orbit-canvas-wrap">
+        <!-- CODE: animated Canvas 2D orbital sketch, driven by js/vesta-interactive.js -->
+        <canvas id="orbit-canvas" width="520" height="420" aria-label="日心转移 animation"></canvas>
+        <div class="orbit-legend">
+          <span><i class="dot" style="background:#F5C16C"></i>太阳</span>
+          <span><i class="dot" style="background:#55ddff"></i>地球</span>
+          <span><i class="dot" style="background:#e8e8e8"></i>灶神星</span>
+          <span><i class="dot" style="background:#F5C16C"></i>航天器</span>
+        </div>
+      </div>
+
+      <div>
+        <!-- ✏️ TEXT CONTENT: key parameter cards -->
+        <div class="param-grid">
+          <div class="stat"><div class="label">发射窗口</div><div class="value">2028</div></div>
+          <div class="stat"><div class="label">转移时长</div><div class="value">398 天</div></div>
+          <div class="stat"><div class="label">C3 能量</div><div class="value">14.2 km²/s²</div></div>
+          <div class="stat"><div class="label">抵达阶段</div><div class="value">2029</div></div>
+        </div>
+
+        <!-- ✏️ TEXT CONTENT: ΔV budget rows — edit stage names / values -->
+        <table class="dv-table">
+          <thead>
+            <tr><th>机动</th><th class="bar-cell">Δv 占比</th><th>Δv (km/s)</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>地球逃逸</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:29%"></span></div></td>
+              <td>3.2</td>
+            </tr>
+            <tr>
+              <td>日心转移</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:43%"></span></div></td>
+              <td>4.8</td>
+            </tr>
+            <tr>
+              <td>灶神星轨道捕获</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:10%"></span></div></td>
+              <td>1.1</td>
+            </tr>
+            <tr>
+              <td>离开并进入返回轨道</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:13%"></span></div></td>
+              <td>1.4</td>
+            </tr>
+            <tr>
+              <td>返回瞄准修正</td>
+              <td class="bar-cell"><div class="dv-bar"><span style="width:5%"></span></div></td>
+              <td>0.6</td>
+            </tr>
+            <tr>
+              <td>任务总 Δv</td>
+              <td class="bar-cell"></td>
+              <td>11.1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="exploration-system">
+    <h1 class="title">三级探测体系</h1>
+    <div class="cards">
+      <article class="card"><h3>轨道 Exploration</h3><p>绘制表面成分、地形与热环境。</p></article>
+      <article class="card"><h3>原位探测</h3><p>测量候选采样区附近的局部地质。</p></article>
+      <article class="card"><h3>采样返回</h3><p>将选定物质带回地球实验室进行详细分析。</p></article>
+    </div>
+  </section>
+  
+  <section class="container" id="sampling-strategy">
+    <h1 class="title">采样策略</h1>
+    <div class="card">
+      <h3>寻找古老地幔</h3>
+      <p class="formula">
+        采样点评分 = Spectral Factor + Terrain Factor + Thermal Factor + Engineering Factor
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEW SECTION — MCDA Site-Selection Interactive Tool
+       ✏️ TEXT CONTENT TO EDIT: intro paragraph, the fixed Olivine
+       Index / Space-Weathering constants noted below the sliders,
+       and the three candidate-site labels (NP-03 / EQ-02 / SP-01).
+       CODE: sliders are wired up in js/vesta-interactive.js
+       (functions updateScore() and the #site-map-canvas drawing).
+       ============================================================ -->
+  <section class="container" id="site-selection">
+    <h1 class="title">MCDA 采样点选择工具</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      候选采样点通过加权多准则决策分析（MCDA）进行排序。拖动滑块，可以观察光谱、地形、热环境和工程因素之间的权衡。
+    </p>
+
+    <div class="mcda-layout">
+      <div class="card">
+        <div class="formula-box">采样点评分 = 0.4 × (PBD + Olivine_Index − Space_Weathering)
+           + 0.2 × (1 − 坡度 / 30°)
+           + 0.3 × (1 − (I − I₀)²)
+           + 0.1 × (1 − Δv / Δv_max)</div>
+
+        <div class="slider-row">
+          <label>辉石吸收带深度 (PBD) <output id="mcda-pbd-out">0.55</output></label>
+          <input type="range" id="mcda-pbd" min="0" max="1" step="0.01" value="0.55">
+        </div>
+        <div class="slider-row">
+          <label>表面坡度 <output id="mcda-坡度-out">12°</output></label>
+          <input type="range" id="mcda-坡度" min="0" max="30" step="1" value="12">
+        </div>
+        <div class="slider-row">
+          <label>热惯量 (I) <output id="mcda-thermal-out">250</output></label>
+          <input type="range" id="mcda-thermal" min="0" max="500" step="5" value="250">
+        </div>
+        <div class="slider-row">
+          <label>着陆 Δv 成本 <output id="mcda-dv-out">180 m/s</output></label>
+          <input type="range" id="mcda-dv" min="0" max="500" step="10" value="180">
+        </div>
+
+        <!-- ✏️ TEXT CONTENT: held-constant terms shown to the reader -->
+        <p style="font-size:12px;color:var(--text-muted);">
+          橄榄石指数固定为 0.60 · 空间风化固定为 0.20 · I₀ = 250 (最佳热惯量) · Δv_max = 500 m/s
+        </p>
+
+        <div class="score-readout">
+          <div class="score-label">综合采样点评分</div>
+          <div class="score-value" id="mcda-score">0.000</div>
+        </div>
+
+        <div class="weight-bar">
+          <span style="width:40%;background:#55ddff" title="光谱 0.4"></span>
+          <span style="width:20%;background:#72ddff" title="地形 0.2"></span>
+          <span style="width:30%;background:#F5C16C" title="热环境 0.3"></span>
+          <span style="width:10%;background:#8affc1" title="工程 0.1"></span>
+        </div>
+        <div class="weight-key">
+          <span><i class="dot" style="background:#55ddff"></i>光谱 0.4</span>
+          <span><i class="dot" style="background:#72ddff"></i>地形 0.2</span>
+          <span><i class="dot" style="background:#F5C16C"></i>热环境 0.3</span>
+          <span><i class="dot" style="background:#8affc1"></i>工程 0.1</span>
+        </div>
+      </div>
+
+      <div class="card site-map-wrap">
+        <h3 style="margin-bottom:14px;">候选着陆点</h3>
+        <!-- CODE: procedurally-drawn 灶神星 disc + site markers -->
+        <canvas id="site-map-canvas" width="320" height="320" aria-label="灶神星 site-selection map"></canvas>
+        <div class="site-list">
+          <span class="site"><i class="dot" style="background:#55ddff"></i>NP-03 · 北极区</span>
+          <span class="site"><i class="dot" style="background:#F5C16C"></i>EQ-02 · 赤道区</span>
+          <span class="site"><i class="dot" style="background:#8affc1"></i>SP-01 · 南极区</span>
+        </div>
+
+        <!-- 🖼️ IMAGE UPLOAD AREA — optional real reference image.
+             Swap the src for your own Dawn-mission mosaic or your own
+             annotated map (recommended ~800×800px). Same pattern as
+             the avatar image on the homepage: <img src="image/avatar.png"> -->
+        <div class="image-frame" style="margin-top:18px;" data-placeholder="🖼️ Add image here&#10;Dawn mission global mosaic of 灶神星&#10;path: image/vesta-global-mosaic.jpg">
+          <img src="../image/vesta-global-mosaic.jpg" alt="Dawn mission global mosaic of 灶神星"
+               onerror="this.parentElement.classList.add('img-missing')">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEW SECTION — Mission Timeline (Gantt)
+       ✏️ TEXT CONTENT TO EDIT: phase names, day ranges, and the
+       hover-tooltip descriptions (inside each .tip div).
+       CODE: bar left%/width% are set inline from a 240-day axis —
+       recompute if you change any phase length.
+       ============================================================ -->
+  <section class="container" id="mission-gantt">
+    <h1 class="title">240 天采样活动</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      进入灶神星轨道后，任务将在返回舱封装并准备离开前经历五个阶段。将鼠标悬停在任一条形上可查看阶段详情。
+    </p>
+
+    <div class="card gantt">
+      <div class="gantt-axis">
+        <span>第 0</span><span>60</span><span>120</span><span>180</span><span>第 240</span>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:0%; width:10.4%;">
+          接近
+          <div class="tip"><strong>接近 &amp; Global Survey</strong><br>第 0–25 · orbit insertion, global spectral and topographic mapping.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:10.4%; width:75%; background:#72ddff;">
+          采样点表征
+          <div class="tip"><strong>Candidate 采样点表征</strong><br>第 25–205 · low-altitude survey passes, touch-and-go rehearsals, final site down-select.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:85.4%; width:4.2%; background:#F5C16C;">
+          采样
+          <div class="tip"><strong>Touch-and-Go 采样</strong><br>第 205–215 · descent, sample acquisition, immediate ascent.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:89.6%; width:6.25%; background:#8affc1;">
+          上升
+          <div class="tip"><strong>上升, Verification &amp; Departure Prep</strong><br>第 215–230 · sample integrity check, seal return capsule, prep for departure burn.</div>
+        </div>
+      </div>
+      <div class="gantt-track">
+        <div class="gantt-bar" style="left:95.8%; width:4.2%; background:#c9a0ff;">
+          余量
+          <div class="tip"><strong>Contingency / 余量</strong><br>第 230–240 · reserved for anomaly recovery or a second sampling attempt.</div>
+        </div>
+      </div>
+      <div class="gantt-milestones">
+        <span>25d: site survey complete</span>
+        <span>205d: site locked in</span>
+        <span>215d: sample secured</span>
+        <span>230d: capsule sealed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SPACECRAFT ARCHITECTURE — enhanced into a full spec sheet
+       ✏️ TEXT CONTENT TO EDIT: masses, subsystem bullet lists,
+       seismometer spec rows, and every row of the payload table.
+       🖼️ IMAGE UPLOAD AREA is marked below — same pattern as the
+       homepage avatar: <img src="image/avatar.png">
+       ============================================================ -->
+  <section class="container" id="spacecraft-architecture">
+    <h1 class="title">航天器 架构</h1>
+
+    <div class="craft-grid">
+      <article class="card craft-card">
+        <h3>🛰 轨道器</h3>
+        <div class="craft-mass">~450 kg</div>
+        <p>执行遥感探测并承担通信中继。</p>
+        <ul>
+          <li>可见光—近红外成像光谱仪</li>
+          <li>伽马射线与中子谱仪</li>
+          <li>高-gain relay antenna</li>
+        </ul>
+      </article>
+      <article class="card craft-card">
+        <h3>🤖 着陆器</h3>
+        <div class="craft-mass">~120 kg</div>
+        <p>支持表面测量与样品采集。</p>
+        <ul>
+          <li>海胆式地震仪阵列</li>
+          <li>样品采集钻具</li>
+          <li>环境相机</li>
+        </ul>
+      </article>
+      <article class="card craft-card">
+        <h3>🧪 返回舱</h3>
+        <div class="craft-mass">~45 kg</div>
+        <p>在返回地球过程中保护采集样品。</p>
+        <ul>
+          <li>污染密封样品舱</li>
+          <li>烧蚀式再入热盾</li>
+          <li>着陆信标</li>
+        </ul>
+      </article>
+    </div>
+
+    <!-- 🖼️ IMAGE UPLOAD AREA — replace with your own spacecraft
+         configuration diagram / render, ~1200×700px recommended.
+         Uses the same <img src="…"> pattern as the homepage avatar. -->
+    <div class="image-frame" style="margin-top:24px;" data-placeholder="🖼️ Add image here&#10;轨道器 / 着陆器 / 返回舱 configuration diagram&#10;path: image/spacecraft-diagram.png">
+      <img src="../image/spacecraft-diagram.png" alt="VISIT.TA spacecraft configuration diagram"
+           onerror="this.parentElement.classList.add('img-missing')">
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h3>海胆式地震仪 — 参数表</h3>
+      <table class="spec-table">
+        <tbody>
+          <tr><th>质量</th><td>8.5 kg</td></tr>
+          <tr><th>展开直径</th><td>0.45 m</td></tr>
+          <tr><th>锚刺数量</th><td>6–12, radially deployed</td></tr>
+          <tr><th>锚固拔出力</th><td>&gt; 200 N</td></tr>
+          <tr><th>传感频段</th><td>0.05–50 Hz, tri-axial</td></tr>
+          <tr><th>功耗</th><td>3.2 W nominal</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+      <h3>载荷清单 <span style="color:var(--text-muted); font-size:14px; font-weight:400;">(13 instruments)</span></h3>
+      <div class="payload-scroll">
+        <table class="payload-table">
+          <thead><tr><th>仪器</th><th>位置</th><th>成本 Level</th></tr></thead>
+          <tbody>
+            <tr><td>Visible–Near IR Imaging Spectrometer</td><td>轨道器</td><td><span class="cost-pill cost-high">高</span></td></tr>
+            <tr><td>Gamma-Ray &amp; Neutron Spectrometer</td><td>轨道器</td><td><span class="cost-pill cost-high">高</span></td></tr>
+            <tr><td>Framing Camera</td><td>轨道器</td><td><span class="cost-pill cost-med">中</span></td></tr>
+            <tr><td>Laser Altimeter</td><td>轨道器</td><td><span class="cost-pill cost-med">中</span></td></tr>
+            <tr><td>Magnetometer</td><td>轨道器</td><td><span class="cost-pill cost-low">低</span></td></tr>
+            <tr><td>Radio 科学 (gravity)</td><td>轨道器</td><td><span class="cost-pill cost-low">低</span></td></tr>
+            <tr><td>Thermal Infrared Mapper</td><td>轨道器</td><td><span class="cost-pill cost-med">中</span></td></tr>
+            <tr><td>Context Imager</td><td>着陆器</td><td><span class="cost-pill cost-med">中</span></td></tr>
+            <tr><td>Sea-Urchin Seismometer Array</td><td>着陆器</td><td><span class="cost-pill cost-high">高</span></td></tr>
+            <tr><td>APXS (Alpha Particle X-ray Spectrometer)</td><td>着陆器</td><td><span class="cost-pill cost-med">中</span></td></tr>
+            <tr><td>Sample Acquisition Drill</td><td>着陆器</td><td><span class="cost-pill cost-high">高</span></td></tr>
+            <tr><td>Microscopic Imager</td><td>着陆器</td><td><span class="cost-pill cost-low">低</span></td></tr>
+            <tr><td>Meteorology &amp; Dust Package</td><td>着陆器</td><td><span class="cost-pill cost-low">低</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SAMPLE SCIENCE — enhanced into a 6-step lab workflow
+       ✏️ TEXT CONTENT TO EDIT: each step's title, description, and
+       which 目标 tag (1/2/3) it maps to — 目标s are defined in the
+       "三大科学问题" section above.
+       ============================================================ -->
+  <section class="container" id="sample-science">
+    <h1 class="title">样品分析流程</h1>
+    <p class="section-lede">
+      <!-- ✏️ TEXT CONTENT -->
+      返回样品将在实验室经历六个分析阶段，每一阶段都对应任务的三大核心科学问题之一。
+    </p>
+
+    <div class="card">
+      <div class="workflow">
+        <div class="workflow-step">
+          <div class="workflow-num">01</div>
+          <div class="workflow-body">
+            <h4>无污染开封</h4>
+            <p>Return capsule opened in a nitrogen-purged glovebox to preserve pristine volatile and organic content.</p>
+            <span class="goal-tag">目标 1 · 原行星内部</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">02</div>
+          <div class="workflow-body">
+            <h4>保管与编目</h4>
+            <p>Sample split, weighed, imaged, and archived under strict planetary-protection protocols.</p>
+            <span class="goal-tag">目标 1 · 原行星内部</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">03</div>
+          <div class="workflow-body">
+            <h4>矿物学与岩石学分析</h4>
+            <p>Thin-section and XRD analysis to compare mineral assemblages directly against HED meteorite collections.</p>
+            <span class="goal-tag">目标 2 · HED 陨石</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">04</div>
+          <div class="workflow-body">
+            <h4>同位素与年代学测定</h4>
+            <p>Radiometric dating constrains the timing of 灶神星's crust-mantle-core differentiation.</p>
+            <span class="goal-tag">目标 1 · 原行星内部</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">05</div>
+          <div class="workflow-body">
+            <h4>挥发分与撞击记录分析</h4>
+            <p>Shock features and volatile inventories reveal the history of major basin-forming impacts.</p>
+            <span class="goal-tag">目标 3 · 巨大撞击</span>
+          </div>
+        </div>
+        <div class="workflow-step">
+          <div class="workflow-num">06</div>
+          <div class="workflow-body">
+            <h4>陨石对比交叉匹配</h4>
+            <p>Spectral and isotopic fingerprints are cross-matched to 地球's HED meteorite archive to confirm provenance.</p>
+            <span class="goal-tag">目标 2 · HED 陨石</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-tags sample-tags" style="margin-top:8px;">
+        <span class="tag">矿物学</span>
+        <span class="tag">同位素分析</span>
+        <span class="tag">挥发分分析</span>
+        <span class="tag">撞击记录</span>
+        <span class="tag">岩石学</span>
+        <span class="tag">年代学</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COST ANALYSIS — enhanced into a full dashboard
+       ✏️ TEXT CONTENT TO EDIT: total cost, the 5 breakdown
+       percentages (must sum to 100 — also update the conic-gradient
+       stops in js/vesta-interactive.js if you change them),
+       comparison-mission figures, and the uncertainty range numbers.
+       ============================================================ -->
+  <section class="container" id="cost-analysis">
+    <h1 class="title">成本分析</h1>
+    <div class="card cost-card">
+      <p class="cost-total">14.5 亿美元</p>
+      <div class="project-tags sample-tags">
+        <span class="tag">载荷系统</span>
+        <span class="tag">平台与推进</span>
+        <span class="tag">发射系统</span>
+        <span class="tag">集成</span>
+        <span class="tag">风险余量</span>
+      </div>
+    </div>
+
+    <div class="cost-dash" style="margin-top:24px;">
+      <div class="card">
+        <h3 style="margin-bottom:16px;">预算构成</h3>
+        <div class="donut-wrap">
+          <!-- CODE: conic-gradient painted by js/vesta-interactive.js -->
+          <div class="donut" id="cost-donut">
+            <div class="donut-center">
+              <div class="big">$1.45B</div>
+              <div class="small">总计</div>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div><i class="dot" style="background:#55ddff"></i>载荷系统 <span class="pct">28%</span></div>
+            <div><i class="dot" style="background:#72ddff"></i>平台与推进 <span class="pct">24%</span></div>
+            <div><i class="dot" style="background:#F5C16C"></i>发射系统 <span class="pct">18%</span></div>
+            <div><i class="dot" style="background:#8affc1"></i>集成与测试 <span class="pct">15%</span></div>
+            <div><i class="dot" style="background:#c9a0ff"></i>风险余量 <span class="pct">15%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3 style="margin-bottom:16px;">国际任务对比</h3>
+        <div class="compare-bars">
+          <div class="compare-row">
+            <div class="label-row"><span>Hayabusa2 (JAXA)</span><span>$0.25B</span></div>
+            <div class="compare-track"><span style="width:17%;background:#8affc1;"></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="label-row"><span>OSIRIS-REx (NASA)</span><span>$1.15B</span></div>
+            <div class="compare-track"><span style="width:79%;background:#72ddff;"></span></div>
+          </div>
+          <div class="compare-row">
+            <div class="label-row"><span>VISIT.TA（本概念）</span><span>$1.45B</span></div>
+            <div class="compare-track"><span style="width:100%;background:var(--accent);"></span></div>
+          </div>
+        </div>
+
+        <div class="uncertainty">
+          <h3 style="margin-bottom:14px; font-size:16px;">成本 Uncertainty Range</h3>
+          <div class="unc-row">
+            <span class="unc-name">乐观</span>
+            <div class="unc-track"><div class="unc-fill" style="left:0%; width:20%;"></div></div>
+            <span>$1.0–1.2B</span>
+          </div>
+          <div class="unc-row">
+            <span class="unc-name">基准</span>
+            <div class="unc-track"><div class="unc-fill" style="left:27%; width:20%;"></div></div>
+            <span>$1.3–1.5B</span>
+          </div>
+          <div class="unc-row">
+            <span class="unc-name">保守</span>
+            <div class="unc-track"><div class="unc-fill" style="left:55%; width:45%;"></div></div>
+            <span>$1.6–2.0B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="conclusion">
+    <h1 class="title">结论</h1>
+    <div class="card">
+      <p>灶神星不仅是一颗小行星。</p>
+      <p>它是行星演化史中被保存下来的一章。</p>
+      <p>我们的探索由此开始。</p>
+      <a href="../index.html#projects" class="project-link">返回项目</a>
+    </div>
+  </section>
+</main>
+  
+<script src="https://cdn.jsdelivr.net/npm/three@0.160/build/three.min.js"></script>
+<script src="../js/universe.js"></script>
+<!-- CODE: powers the orbital canvas, MCDA sliders, site map, and cost donut above -->
+<script src="../js/vesta-interactive.js"></script>
+</body>
+
+</html>
